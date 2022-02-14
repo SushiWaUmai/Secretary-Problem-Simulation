@@ -9,8 +9,8 @@ def show_plot(x):
     plt.ylabel("Expected Score")
     plt.plot(x)
 
-    # show the plot
-    plt.show()
+    # # show the plot
+    # plt.show()
 
 n_dates = 100
 max_score = 10000
@@ -44,6 +44,7 @@ def main():
     y = np.average(y, axis=1)
 
     show_plot(y)
+    plt.savefig('result.png')
 
 
 if __name__ == "__main__":

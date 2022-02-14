@@ -2,6 +2,8 @@
 
 Simulation of the [Secretary Problem](https://en.wikipedia.org/wiki/Secretary_problem)
 
+## Results
+![Results](./result.png)
 ## Requirements
 - python3
 - pip or pip3
