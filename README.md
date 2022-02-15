@@ -3,7 +3,13 @@
 Simulation of the [Secretary Problem](https://en.wikipedia.org/wiki/Secretary_problem)
 
 ## Results
-![Results](./result.png)
+Probability of Success
+
+![Probability of Success](./success_rate.png)
+
+Expected Score
+
+![Expected Score](./expected_score.png)
 ## Requirements
 - python3
 - pip or pip3

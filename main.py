@@ -1,24 +1,16 @@
 # secretary problem
+from random import randrange
 import numpy as np
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 
-def show_plot(x):
-    # plot the data
-    plt.xlabel("Heuristic Parameter")
-    plt.ylabel("Expected Score")
-    plt.plot(x)
-
-    # # show the plot
-    # plt.show()
-
-n = 100
-samples = 100
+n = 1000
+samples = 1000
 
 def main():
     # generate a random numpy matrix of n x samples numbers between 0 and max_score
     x = np.random.uniform(size=(n, samples))
-    y = np.zeros(x.shape)
+    expected_score = np.zeros(x.shape)
 
     for s in tqdm(range(samples)):
         for i in range(n):
@@ -27,18 +19,31 @@ def main():
 
             # date until you get a better score than the first i dates
             # take the last one if you didn't find a better score
-            for j in range(i, n):
+            for j in range(i+1, n):
                 current = x[j, s]
-                if current >= nth_max:
+                if  current > nth_max:
                     break
 
             # set the result to the current score
-            y[i, s] = current
+            expected_score[i, s] = current
 
-    y = np.average(y, axis=1)
+    # Average the results
+    prob_success = np.average(expected_score == np.max(x, axis=0), axis=1)
+    expected_score = np.average(expected_score, axis=1)
 
-    show_plot(y)
-    plt.savefig('result.png')
+    plt.title("Success Rate")
+    plt.xlabel("Heuristic Parameter")
+    plt.ylabel("Probability of Success")
+    plt.plot(prob_success)
+    plt.savefig('success_rate.png')
+    plt.close()
+
+    plt.title("Expected Score")
+    plt.xlabel("Heuristic Parameter")
+    plt.ylabel("Expected Score")
+    plt.plot(expected_score)
+    plt.savefig('expected_score.png')
+    plt.close()
 
 
 if __name__ == "__main__":
