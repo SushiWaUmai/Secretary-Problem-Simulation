@@ -35,14 +35,14 @@ def main():
     plt.xlabel("Heuristic Parameter")
     plt.ylabel("Probability of Success")
     plt.plot(prob_success)
-    plt.savefig('success_rate.png')
+    plt.savefig("images/success_rate.png")
     plt.close()
 
     plt.title("Expected Score")
     plt.xlabel("Heuristic Parameter")
     plt.ylabel("Expected Score")
     plt.plot(expected_score)
-    plt.savefig('expected_score.png')
+    plt.savefig("images/expected_score.png")
     plt.close()
 
 
